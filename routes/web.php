@@ -22,4 +22,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/get/employee/list', [EmployeeController::class, 'employeeList'])->name('employee.list');
+Route::get('/get/employees/list', [EmployeeController::class, 'employeesList'])->name('employees.list');
+Route::post('/get/employee/details', [EmployeeController::class, 'employeeDetails'])->name('employee.details');
+Route::post('/update/employee/data', [EmployeeController::class, 'updateEmployee'])->name('update.employee');
+Route::delete('/delete/employee/data/{employee}', [EmployeeController::class, 'destroy'])->name('delete.employee');
+Route::post('/create/new/employee', [EmployeeController::class, 'store'])->name('create.employee');
